@@ -16,7 +16,7 @@ public class SudokuController {
         this.sudokuGame = sudokuGame;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String showSudoku(Model model) {
         model.addAttribute("sudokuBoard", sudokuGame.getBoard());
         return "sudoku"; // Name of the HTML template
