@@ -6,11 +6,11 @@ public class SudokuModel {
     public SudokuModel() {
         this.grid = new int[9][9];
         // Initialize the grid with zeros
-//        for (int i = 0; i < 9; i++) {
-//            for (int j = 0; j < 9; j++) {
-//                this.grid[i][j] = 0;
-//            }
-//        }
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.grid[i][j] = 0;
+            }
+        }
     }
 
     public void setGrid(int[][] grid) {
@@ -61,14 +61,14 @@ public class SudokuModel {
 
         // Check if each row, column, and 3x3 subgrid contains all numbers from 1 to 9
         for (int i = 0; i < 9; i++) {
-            if (!isValidSet(this.grid[i]) || !isValidSet(getColumn(i))) {
+            if (isNotValidSet(this.grid[i]) || isNotValidSet(getColumn(i))) {
                 return false;
             }
         }
 
         for (int i = 0; i < 9; i += 3) {
             for (int j = 0; j < 9; j += 3) {
-                if (!isValidSet(getSubgrid(i, j))) {
+                if (isNotValidSet(getSubgrid(i, j))) {
                     return false;
                 }
             }
@@ -108,19 +108,19 @@ public class SudokuModel {
         return true; // All cells filled, puzzle solved
     }
 
-    private boolean isValidSet(int[] array) {
+    private boolean isNotValidSet(int[] array) {
         // Check if the array contains all numbers from 1 to 9
         boolean[] used = new boolean[9];
 
         for (int num : array) {
             if (num < 1 || num > 9 || used[num - 1]) {
-                return false;
+                return true;
             }
 
             used[num - 1] = true;
         }
 
-        return true;
+        return false;
     }
 
     private int[] getColumn(int col) {
