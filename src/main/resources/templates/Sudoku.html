@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 300px; /* Adjust as needed */
+            height: 300px; /* Same as width for a perfect square */
+        }
+
+        td {
+            width: 33.33%; /* 1/3 of the table width for 3 columns */
+            height: 33.33%; /* 1/3 of the table height for 3 rows */
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1.5em; /* Adjust as needed */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Sudoku Puzzle</h2>
+
+<table border="1" cellpadding="5">
+    <tbody>
+    <!-- Iterate over rows -->
+    <tr th:each="row, rowStat : ${sudokuModel.grid}">
+        <!-- Iterate over columns -->
+        <td th:each="cell, colStat : ${row}">
+            <span th:text="${cell != 0 ? cell : ''}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
