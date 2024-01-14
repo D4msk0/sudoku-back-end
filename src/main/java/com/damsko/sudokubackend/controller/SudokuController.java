@@ -12,7 +12,7 @@ public class SudokuController {
     public String sudokuPage(Model model){
         //initialize SudokuModel
         SudokuModel sudokuModel = new SudokuModel();
-
+        //Should I minimize logic here? Maybe init the grid somewhere else?
         //set initial grid
         int[][] initialGrid = {
                 {5, 3, 0, 0, 7, 0, 0, 0, 0},
