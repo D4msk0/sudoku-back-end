@@ -26,7 +26,7 @@ public class SudokuController {
                 {1, 0, 2, 0, 0, 0, 0, 0, 0}
         };
         sudokuModel.setGrid(initialGrid);
-        // Add the Sudokumodel to the model to make it available in the view
+        // Add the Sudoku model to the model to make it available in the view
         model.addAttribute("sudokuModel", sudokuModel);
 
         // Return the name of the HTML template
